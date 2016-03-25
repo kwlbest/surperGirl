@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>超级女生复活赛</title>
+<link href="css/mReset.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="js/zepto.min.js" type="text/javascript"></script>
+</head>
+
+<body style="background:#d9d5d7;">
+<div id="wrapper">
+	<!--头部图片-->
+    <div id="head_img2">
+    	<div class="note"><span>音符数量：</span><em>150</em><i><img src="images/note.png"></i></div>
+    	<div class="add_BtnS" style="padding-bottom:0%"><a href="#"><img src="images/mark.png"></a></div>
+        <div class="endTime">
+        	<h4>距离复活赛投票结束时间还有</h4>
+            <div class="main">
+            	<span>11</span><label>时</label>
+                <span>11</span><label>分</label>
+                <span>11</span><label>秒</label>
+            </div>
+        </div>
+    </div>
+  
+   <!--组别-->
+   <div class="class">
+   		<ul>
+        	<li>第一组</li>
+            <li>第二组</li>
+            <li>第三组</li>
+            <li>第四组</li>
+            <li>第五组</li>
+            <li>第六组</li>
+            <li>第七组</li>
+            <li>第八组</li>
+            <li>第九组</li>
+        </ul>	
+   </div>	
+</div>
+<script>
+	$(function(){
+		var aSpans = $('.endTime span');
+		
+		var endTime = new Date(2016,02,8,18,47,52);
+		setInterval(function(){
+			var curTime = new Date();
+			var ret = endTime.getTime() - curTime.getTime();
+			ret = Math.round(ret/1000);
+			var hours = parseInt(ret/3600);
+			var minutes = parseInt((ret - hours*3600)/60);
+			var seconds = parseInt(ret%60);
+			if(seconds < 10){
+				seconds = '0'+seconds;
+				}
+			if(minutes < 10){
+				minutes = '0'+ minutes;
+				}
+			if(hours < 10){
+				hours = '0'+ hours;
+				}			
+			aSpans.eq(0).html(hours);
+			aSpans.eq(1).html(minutes);
+			aSpans.eq(2).html(seconds);
+			
+			} , 1000);
+		})
+</script>
+</body>
+</html>
